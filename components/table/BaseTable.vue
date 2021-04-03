@@ -1,8 +1,7 @@
 <template>
-  <div class="container">
+  <div class="container" v-if="datas.length">
     <div class="row">
       <page-change @onChanged="onChanged" />
-
       <div class="col-md-6 d-flex justify-content-end">
         <div class="form-group mt-2">
           <input placeholder="Search" class="form-control" />
@@ -34,13 +33,12 @@
           </slot>
           <td>
             <div class="d-flex justify-content-end">
-              <button
-                type="button"
+              <nuxt-link
+                :to="`/pokemon-profile/${item.id}`"
                 class="btn btn-outline-info bg-button"
-                @click="viewDetail()"
               >
                 View
-              </button>
+              </nuxt-link>
             </div>
           </td>
         </tr>

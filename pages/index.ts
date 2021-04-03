@@ -24,9 +24,7 @@ export default Vue.extend({
     },
     async fetch({ store }) {
         await store.dispatch('Pokemon-Module/getPokemon', paginationModel);
-
     },
-
     data: () => ({
         paginationModel,
         pokemonModel,
