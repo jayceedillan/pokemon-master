@@ -28,4 +28,4 @@
     </div>
   </div>
 </template>
-<script lang="ts" src="./PageChange.ts"></script>
+<script lang="ts" src="./PageChanged.ts"></script>

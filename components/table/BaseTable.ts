@@ -1,7 +1,7 @@
 import { Vue } from "vue-property-decorator";
 
 import imageService from '@/services/ImageService';
-import pageChange from '@/components/table/PageChange/PageChange'
+import pageChange from '~/components/table/PageChanged/PageChanged'
 import _ from "lodash";
 export default Vue.extend({
     components: { pageChange },
@@ -32,7 +32,6 @@ export default Vue.extend({
         data: async function () {
             this.watchData();
         }
-
     },
     created() {
         this.datas = [];
@@ -41,7 +40,9 @@ export default Vue.extend({
         this.watchData();
     },
     data: () => ({
-        datas: [{ name: '', url: '', picture: '' }] as any
+        datas: [{ name: '', url: '', picture: '' }] as any,
+        search: '',
+        selectedRowNumber: 10
     }),
     methods: {
         watchData() {
@@ -66,12 +67,12 @@ export default Vue.extend({
             return item[column.toLowerCase()];
         },
         onChanged(selectedRowNumber: number): void {
+            this.selectedRowNumber = selectedRowNumber;
             this.$emit('onChanged', selectedRowNumber);
         },
-        viewDetail(id: number) {
-            alert(id)
-            debugger
-            this.$router.push('/pokemon-profile/1')
-        }
+
+        onSearch(): void {
+            this.$store.dispatch('Pokemon-Module/onSearch', [this.search.toLowerCase(), this.selectedRowNumber]);
+        },
     }
 })

@@ -13,7 +13,7 @@
           <li v-if="limitButton(pageNumber)" :key="pageNumber">
             <a
               class="page-link"
-              @click="setPage(pageNumber)"
+              @click="setPage($event, pageNumber)"
               :class="{
                 current: currentPage === pageNumber,
                 last:

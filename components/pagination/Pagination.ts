@@ -21,7 +21,9 @@ export default Vue.extend({
             this.currentPage = this.totalPages;
             this.$emit('pageChanged', this.currentPage - 1);
         },
-        setPage(pageNumber: number) {
+        setPage(e: any, pageNumber: number) {
+            e.preventDefault();
+            // alert(e)
             this.currentPage = pageNumber;
             this.$emit('pageChanged', this.currentPage - 1);
         },

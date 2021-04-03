@@ -1,10 +1,15 @@
 <template>
-  <div class="container" v-if="datas.length">
+  <div class="container">
     <div class="row">
       <page-change @onChanged="onChanged" />
       <div class="col-md-6 d-flex justify-content-end">
         <div class="form-group mt-2">
-          <input placeholder="Search" class="form-control" />
+          <input
+            placeholder="Search"
+            class="form-control"
+            @input="onSearch"
+            v-model="search"
+          />
         </div>
       </div>
     </div>

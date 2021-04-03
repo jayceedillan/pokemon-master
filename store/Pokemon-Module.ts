@@ -5,6 +5,7 @@ import PaginationModel from '~/models/PaginationModel';
 
 export const state = () => ({
     pokemonLists: [],
+    preservecPokemonLists: [],
     pokemonDetails: {}
 })
 
@@ -21,8 +22,12 @@ export const getters = {
 export const mutations = {
     async setPokemonLists(state: any, pokemonLists: []) {
         state.pokemonLists = pokemonLists;
+
     },
 
+    async setPreservecPokemonLists(state: any, pokemonLists: []) {
+        state.preservecPokemonLists = pokemonLists;
+    },
     async updatePokemonLists(state: any, pokemonLists: ['', 0]) {
         state.pokemonLists[pokemonLists[1]] = pokemonLists[0]
     },
@@ -38,6 +43,7 @@ export const actions = {
         const url = `pokemon/?offset=${paginationModel.currentPage}&limit=${paginationModel.rowPerPage}`;
         const response: any = await apiService.getAll(url);
         commit("setPokemonLists", response.data);
+        commit('setPreservecPokemonLists', response.data);
     },
     async getPokemonById({ commit }: { commit: Function }, id: number): Promise<void> {
         debugger
@@ -46,5 +52,17 @@ export const actions = {
     },
     async updatePokemon({ commit }: { commit: Function }, updateData: ['', 0]): Promise<void> {
         commit("updatePokemonLists", updateData);
+    },
+
+    async onSearch({ commit, state }: any, params: ['', 0]): Promise<void> {
+
+        const response = state.preservecPokemonLists.results.filter((item: any) => item.name.toLowerCase().includes(params[0].toLowerCase()));
+        const pokemonObj = {
+            count: response.length === params[1] ? state.preservecPokemonLists.count : response.length,
+            next: state.preservecPokemonLists.next,
+            previous: state.preservecPokemonLists.previous,
+            results: response
+        }
+        commit("setPokemonLists", pokemonObj);
     },
 }

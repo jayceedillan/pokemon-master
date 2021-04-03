@@ -1,6 +1,6 @@
 <template>
   <div>
-    <edit-profile />
+    <pokemon-profile />
   </div>
 </template>
 

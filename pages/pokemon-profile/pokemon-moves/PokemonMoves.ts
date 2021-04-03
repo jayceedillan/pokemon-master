@@ -6,6 +6,13 @@ export default Vue.extend({
     computed: {
         ...mapGetters("Pokemon-Module", [
             "pokemonDetails"
-        ])
+        ]),
+        moves() {
+            let types = '';
+            for (const item of this.pokemonDetails.moves) {
+                types += item.move.name + ',';
+            }
+            return types.replace(/,+$/, "");
+        }
     },
 })
