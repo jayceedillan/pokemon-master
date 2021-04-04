@@ -13,7 +13,10 @@
         </div>
       </div>
     </div>
-    <table class="table tablesorter" :class="tableClass">
+    <div class="d-flex justify-content-center" v-if="datas.length === 0">
+      No Data Available
+    </div>
+    <table class="table tablesorter" :class="tableClass" v-if="datas.length">
       <thead :class="theadClasses">
         <tr>
           <slot name="columns">
@@ -48,6 +51,7 @@
           </td>
         </tr>
       </tbody>
+
       <!-- <div class="d-flex justify-content-center" v-if="columns.length === 0">
         <div
           class="spinner-border"

@@ -8,7 +8,11 @@
         thead-classes="text-primary"
       >
       </base-table>
-      <cpagination :totalPages="totalPages" @pageChanged="pageChanged" />
+      <cpagination
+        :totalPages="totalPages"
+        @pageChanged="pageChanged"
+        v-if="pokemonLists.results.length"
+      />
     </div>
     <cnotification />
   </card>
