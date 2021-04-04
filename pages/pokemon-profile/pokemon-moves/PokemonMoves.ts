@@ -9,9 +9,14 @@ export default Vue.extend({
         ]),
         moves() {
             let types = '';
+            if (this.pokemonDetails.moves === undefined) {
+                return ''
+            }
+
             for (const item of this.pokemonDetails.moves) {
                 types += item.move.name + ',';
             }
+
             return types.replace(/,+$/, "");
         }
     },

@@ -5,7 +5,7 @@
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
-              {{ pokemonDetails.stats[0].base_stat }}
+              {{ value(0) }}
             </p>
             <p class="card-text">HP</p>
           </div>
@@ -15,7 +15,7 @@
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
-              {{ pokemonDetails.stats[1].base_stat }}
+              {{ value(1) }}
             </p>
             <p class="card-text">Attack</p>
           </div>
@@ -25,17 +25,18 @@
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
-              {{ pokemonDetails.stats[2].base_stat }}
+              {{ value(2) }}
             </p>
             <p class="card-text">Defense</p>
           </div>
         </div>
       </div>
+
       <div class="col-md-3 shadow-sm bg-white rounded col-height">
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
-              {{ pokemonDetails.stats[3].base_stat }}
+              {{ value(3) }}
             </p>
             <p class="card-text">Special-Attack</p>
           </div>
@@ -47,7 +48,7 @@
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
-              {{ pokemonDetails.stats[4].base_stat }}
+              {{ value(4) }}
             </p>
             <p class="card-text">Special-Defense</p>
           </div>
@@ -57,7 +58,7 @@
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
-              {{ pokemonDetails.stats[5].base_stat }}
+              {{ value(5) }}
             </p>
             <p class="card-text">Speed</p>
           </div>
@@ -68,12 +69,17 @@
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
-              {{ pokemonDetails.base_experience }}
+              {{
+                pokemonDetails.base_experience === undefined
+                  ? 0
+                  : pokemonDetails.base_experience
+              }}
             </p>
             <p class="card-text">Happiness</p>
           </div>
         </div>
       </div>
+      -->
     </div>
   </div>
 </template>

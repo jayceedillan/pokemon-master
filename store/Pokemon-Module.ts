@@ -2,7 +2,7 @@
 
 import apiService from '@/services/ApiService'
 import PaginationModel from '~/models/PaginationModel';
-
+import pokemonDetailsModel from '@/models/PokemonDetailModel'
 export const state = () => ({
     pokemonLists: [],
     preservecPokemonLists: [],
@@ -45,8 +45,7 @@ export const actions = {
         commit("setPokemonLists", response.data);
         commit('setPreservecPokemonLists', response.data);
     },
-    async getPokemonById({ commit }: { commit: Function }, id: number): Promise<void> {
-        debugger
+    async getPokemonById({ commit }: { commit: Function }, id: number = 25): Promise<void> {
         const response: any = await apiService.getAll('pokemon/' + id);
         commit("setpokemonDetails", response.data);
     },
@@ -56,7 +55,9 @@ export const actions = {
 
     async onSearch({ commit, state }: any, params: ['', 0]): Promise<void> {
 
-        const response = state.preservecPokemonLists.results.filter((item: any) => item.name.toLowerCase().includes(params[0].toLowerCase()));
+        const response = state.preservecPokemonLists.results.filter((item: any) =>
+            item.name.toLowerCase().includes(params[0].toLowerCase()));
+
         const pokemonObj = {
             count: response.length === params[1] ? state.preservecPokemonLists.count : response.length,
             next: state.preservecPokemonLists.next,

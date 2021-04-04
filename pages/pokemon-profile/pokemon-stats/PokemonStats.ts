@@ -8,4 +8,11 @@ export default Vue.extend({
             "pokemonDetails"
         ]),
     },
+    methods: {
+        value(idx: number) {
+            return this.pokemonDetails.stats === undefined
+                ? 0
+                : this.pokemonDetails.stats[idx].base_stat
+        }
+    }
 })

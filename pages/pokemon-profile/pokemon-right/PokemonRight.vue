@@ -8,7 +8,7 @@
           <div class="block block-three"></div>
           <div class="block block-four"></div>
           <a
-            ><img :src="pokemonDetails.sprites.back_default" class="avatar" />
+            ><img :src="picture" class="avatar" />
             <h5 class="title display-4">{{ pokemonDetails.name }}</h5></a
           >
         </div>
