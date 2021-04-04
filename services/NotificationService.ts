@@ -1,7 +1,6 @@
 import Vue from 'vue';
 export default {
     success(title: string, text: string) {
-        alert('xxx')
         Vue.notify({
             group: 'foo',
             title: title,

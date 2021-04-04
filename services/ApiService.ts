@@ -23,13 +23,16 @@ apiClient.interceptors.response.use(
 
     switch (error.response.status) {
       case 400:
-        notification.show('custom-template', 'Error', error.response.data.error[0].message, '');
+        notification.show('custom-template', 'Error', error.response.status.statusText, '');
         return
       case 401:
-        notification.show('custom-template', 'Error', error.response.data.error.message, '');
+        notification.show('custom-template', 'Error', error.response.status.statusText, '');
         return
       case 403:
         // this.$router.push('/')
+        return
+      case 404:
+        notification.show('custom-template', 'Error', error.response.status.statusText, '');
         return
     }
 

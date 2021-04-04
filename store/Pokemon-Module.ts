@@ -2,7 +2,7 @@
 
 import apiService from '@/services/ApiService'
 import PaginationModel from '~/models/PaginationModel';
-import pokemonDetailsModel from '@/models/PokemonDetailModel'
+import notificationService from '@/services/NotificationService'
 export const state = () => ({
     pokemonLists: [],
     preservecPokemonLists: [],
@@ -45,9 +45,15 @@ export const actions = {
         commit("setPokemonLists", response.data);
         commit('setPreservecPokemonLists', response.data);
     },
-    async getPokemonById({ commit }: { commit: Function }, id: number = 25): Promise<void> {
-        const response: any = await apiService.getAll('pokemon/' + id);
-        commit("setpokemonDetails", response.data);
+    async getPokemonById({ commit }: { commit: Function }, id: number = 0): Promise<void> {
+
+        try {
+            const response: any = await apiService.getAll('pokemon/' + id);
+            commit("setpokemonDetails", response.data);
+        } catch (error) {
+            console.log('record not found')
+        }
+
     },
     async updatePokemon({ commit }: { commit: Function }, updateData: ['', 0]): Promise<void> {
         commit("updatePokemonLists", updateData);

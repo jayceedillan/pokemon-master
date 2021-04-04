@@ -40,13 +40,22 @@ export default {
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [{ src: '~/plugins/VueNotification.ts', ssr: false },],
+  plugins: [{ src: '~/plugins/vue-notification.ts', ssr: false }],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: [
     { path: '@/components/', extensions: ['vue'] }
   ],
 
+  router: {
+    extendRoutes(routes, resolve) {
+      routes.push({
+        name: 'custom',
+        path: '*',
+        component: resolve(__dirname, 'pages/error/404.vue')
+      })
+    }
+  },
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://go.nuxtjs.dev/typescript
@@ -60,7 +69,9 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/style-resources',
   ],
-
+  styleResources: {
+    scss: ['./assets/scss/*.scss']
+  },
   server: {
     port: 8080,
   },

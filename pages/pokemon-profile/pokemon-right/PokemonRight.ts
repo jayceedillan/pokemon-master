@@ -9,7 +9,7 @@ export default Vue.extend({
         ]),
         types() {
             let types = '';
-            debugger
+
             if (this.pokemonDetails.types === undefined) {
                 return ''
             }
