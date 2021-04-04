@@ -1,8 +1,8 @@
 import { Vue } from "vue-property-decorator";
-import pokemonProfile from '~/pages/pokemon-profile/PokemonProfile';
+import PokemonProfile from '~/pages/pokemon-profile/PokemonProfile';
 
 export default Vue.extend({
-    components: { pokemonProfile },
+    components: { PokemonProfile },
     layout(context) {
         return "MainLayout";
     },

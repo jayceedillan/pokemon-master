@@ -8,6 +8,7 @@
       >
         <a class="page-link">←</a>
       </li>
+
       <template>
         <template class="page-item" v-for="pageNumber in totalPages">
           <li v-if="limitButton(pageNumber)" :key="pageNumber">
@@ -30,7 +31,7 @@
         </template>
       </template>
       <li
-        class="page-item"
+        class="page-item last"
         :class="[currentPage === totalPages ? 'disabled' : '']"
         @click="setLast()"
       >

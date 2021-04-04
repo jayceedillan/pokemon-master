@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="row mt-4">
-      <div class="col-md-2 shadow-sm bg-white rounded col-height">
+      <div class="col-md-3 shadow-sm bg-white rounded col-height">
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
@@ -11,7 +11,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 shadow-sm bg-white rounded col-height">
+      <div class="col-md-3 shadow-sm bg-white rounded col-height">
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 shadow-sm bg-white rounded col-height">
+      <div class="col-md-3 shadow-sm bg-white rounded col-height">
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 shadow-sm bg-white rounded col-height">
+      <div class="col-md-3 shadow-sm bg-white rounded col-height">
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
@@ -41,7 +41,9 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 shadow-sm bg-white rounded col-height">
+    </div>
+    <div class="row mt-4">
+      <div class="col-md-3 shadow-sm bg-white rounded col-height">
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
@@ -51,7 +53,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-2 shadow-sm bg-white rounded col-height">
+      <div class="col-md-3 shadow-sm bg-white rounded col-height">
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">
@@ -61,9 +63,8 @@
           </div>
         </div>
       </div>
-    </div>
-    <div class="row mt-4">
-      <div class="col-md-2 shadow-sm bg-white rounded col-height">
+
+      <div class="col-md-3 shadow-sm bg-white rounded col-height">
         <div class="card bg-white">
           <div class="card-body text-center">
             <p class="card-text display-4">

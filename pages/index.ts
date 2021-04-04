@@ -1,14 +1,14 @@
 import { Vue } from "vue-property-decorator";
-import baseTable from '~/components/table/BaseTable';
+import BaseTable from '~/components/table/BaseTable';
 import card from '~/components/cards/Card';
 import cnotification from '~/components/notification/Notification';
-import { mapGetters } from "vuex";
+import { mapGetters, mapActions } from "vuex";
 import pokemonModel from '~/models/PokemonTableModel';
 import pagination from '~/models/PaginationModel';
 import cpagination from '@/components/pagination/Pagination';
 import paginationModel from '~/models/PaginationModel';
 export default Vue.extend({
-    components: { baseTable, card, cnotification, cpagination },
+    components: { BaseTable, card, cnotification, cpagination },
 
     layout(context) {
         return "MainLayout";
