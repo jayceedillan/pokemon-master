@@ -29,13 +29,18 @@
             <span class="font-weight-bold">Abilities:</span>
             {{ abilities }}
           </li>
+
           <li class="list-group-item">
             <span class="font-weight-bold">Evolution:</span>
-            <ul>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
-              <li>Lorem ipsum</li>
+
+            <ul v-if="evolutionEvolveRemoveNull.length">
+              <template
+                v-for="(evolutionEvolv, i) in evolutionEvolveRemoveNull"
+              >
+                <li :key="i">
+                  {{ evolutionEvolv }}
+                </li>
+              </template>
             </ul>
           </li>
         </ul>
